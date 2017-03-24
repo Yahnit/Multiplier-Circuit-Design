@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ITWS Assignment 6 | 20161033</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<style>
+input[type=text], select {
+width: 40%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+}
+input[type=button]:hover {
+
+	background-color: #45a049;
+}
+
+
+input[type=button] {
+width: 20%;
+	   background-color: #4CAF50;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+		border-radius: 4px;
+cursor: pointer;
+}
+
+.dropbtn {
+	background-color: #4CAF50;
+color: white;
+padding: 16px;
+		 font-size: 16px;
+border: none;
+cursor: pointer;
+}
+
+.dropdown {
+position: relative;
+display: inline-block;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+		  background-color: #f9f9f9;
+		  min-width: 160px;
+		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		  z-index: 1;
+}
+
+.dropdown-content a {
+color: black;
+padding: 12px 16px;
+		 text-decoration: none;
+display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: #3e8e41;
+}
+
+#heading
+{
+color:purple;
+}
+#ans
+{
+	background-color: #f2f2f2;
+color:black;
+}
+#main
+{
+	background-color:white;
+}
+#btns
+{
+color:white;
+	  background-color:green;
+}
+/*#rh
+  {
+  background-color:grey;
+  }*/
+</style>
+</head>
+<body>
+<fieldset id="main">
+<h1 style="color:brown">Javascript OOP</h1>
+
+<br/><br/><br/>
+<fieldset id="ans">
+<h4 id="heading">ADD NEW STUDENT</h4>
+<form id="addNewStudent">
+<pre>
+<label>ROLL NUM : </label><input name="roll" type="text"><br/>
+<label>    NAME : </label><input name="name" type="text"><br/>
+<label>    YEAR : </label><input name="year" type="text"><br/>
+<input type="button"  onclick="addStudent()" value="Add Student" ></button>
+</pre>
+</form>
+</fieldset>
+<br/><br/><br/>
+
+<fieldset id="ans">
+<h4 id="heading">ADD NEW COURSE</h4>
+<form id="addNewCourse">
+<pre>
+<label>COURSE ID : </label><input name="id" type="text"><br/>
+<label>     NAME : </label><input name="name" type="text"><br/>
+<input type="button" onclick="addCourse()" value="Add"></button>
+</pre>
+</form>
+</fieldset>
+
+<br/><br/><br/>
+<fieldset id="ans">
+<h4 id="heading">LIST OF STUDENTS</h4>
+<table id="rh" border="3" style="width:50%" class="table table-striped">
+<thead>
+<tr>
+<th style="text-align:center">Roll</th>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Year</th>
+</tr>
+</thead>
+<tbody id="studentscontent" >
+
+</tbody>
+</table>
+</fieldset>
+
+<br />
+<br />
+<br />
+
+<fieldset id="ans">
+<h4 id="heading">LIST OF COURSES</h4>
+<table id="rh" border="3" style="width:30%" class="table table-striped">
+<thead>
+<tr>
+<th style="text-align:center">ID</th>
+<th style="text-align:center">Course Name</th>
+</tr>
+</thead>
+<tbody id="coursecontent">
+
+<tbody>
+</table>
+</fieldset>
+<br/><br/><br/>
+
+<fieldset id="ans">
+<h4 id="heading">ADD NEW STUDENT TO A COURSE</h4>
+<form>
+<label>Student Name: </label>
+<select name="add_student" id="add_student">
+
+</select>
+<br/>
+<label>Course Name: </label>
+<select name="add_course" id="add_course">
+
+</select>
+<br/><br/>
+<input type="button"  onclick="temp1()" value="Add"></button>
+</form>
+</fieldset>
+
+<br/><br/><br/>
+<fieldset id="ans">
+<h4 id="heading">REMOVE A STUDENT FROM A COURSE</h4>
+<form>
+<label>Student Name: </label>
+<select name="remove_student" id="remove_student">
+
+</select>
+<br/>
+<label>Course Name: </label>
+<select name="remove_course" id="remove_course">
+
+</select>
+<br/><br/>
+<input type="button" onclick="temp2()" value="Remove"></button>
+</form>
+</fieldset>
+
+<br/><br/><br/>
+<fieldset id="ans">
+<h4 id="heading">REMOVE A COURSE</h4>
+<form>
+<label>Course Name: </label>
+<select name="delete_course" id="delete_course">
+
+</select>
+<br/><br/>
+<input type="button"  onclick="temp3()" value="Remove"></button>
+</form>
+</fieldset>
+
+<br/><br/><br/>
+<fieldset id="ans">
+<h4 id="heading">REMOVE A STUDENT</h4>
+<form>
+<label>Student Name: </label>
+<select name="delete_student" id="delete_student">
+
+</select>
+<br/><br/>
+<input type="button"  onclick="temp4()" value="Remove"></button>
+</form>
+</fieldset>
+
+<br/><br/><br/>
+<fieldset id="ans">
+<h4 id="heading">DISPLAY STUDENTS TAKING A COURSE</h4>
+<form>
+<label>Course Name: </label>
+<select name="display_students" id="display_students">
+
+</select>
+<br/><br/>
+
+<table id="rh" border="3" style="width:50%" class="table table-striped">
+<thead>
+<tr>
+<th style="text-align:center">ROLL</th>
+<th style="text-align:center">NAME</th>
+<th style="text-align:center">YEAR</th>
+</tr>
+</thead>
+<tbody id="disp_students">
+
+<tbody>
+</table>
+
+<br/><br/>
+<input type="button"  onclick="temp5()" value="Display"></button>
+</form>
+</fieldset>
+
+<br/><br/><br/>
+<fieldset id="ans">
+<h4 id="heading">DISPLAY COURSES TAKEN BY STUDENTS</h4>
+<form>
+<label>Student Name: </label>
+<select name="display_courses" id="display_courses">
+
+</select>
+<br/><br/>
+
+<table id="rh" border="3" style="width:30%" class="table table striped">
+<thead>
+<tr>
+<th style="text-align:center">ID</th>
+<th style="text-align:center">Course Name</th>
+</tr>
+</thead>
+<tbody id="disp_courses">
+
+<tbody>
+</table>
+
+<br/><br/>
+<input type="button"  onclick="temp6()" value="Display"></button>
+</form>
+</fieldset>
+
+<br/><br/><br/><br/>
+</fieldset>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

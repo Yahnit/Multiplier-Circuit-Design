@@ -1,0 +1,21 @@
+The code and the test bench for the multi-cycle multiplier is supplied.
+Read how the entire bsv specification of the circuit is organized. Next,
+analyze which rules are getting fired in each clock cycle and make sure
+it is making sense.
+ 
+Design a single cycle (purely combinational) and pipelined multiplier
+circuits. You should respect the Multiplier_IFC interface in your 
+implementation. The module for single cycle multiplier should be mkSingle
+and should be written in the file Single.bsv. The mode for pipelined 
+multiplier should be mkPipe and should be written in the file Pipe.bsv.
+You should test your circuit designs by writting your own test benches.
+Writing good test benches is extremely important. So your submission
+will also be evaluated based on the quality of the test bench you have
+developed. We will test your desing using a separate test bench not 
+provided to you. 
+
+Challenge Problem: For the multi-cycle design, compute the average 
+number of cycles required on random operands and check if it matches
+the theoretically computed values. We will release a partial support
+for this question by the end of this week. So if anyone gets to crack
+this before, drop me a note. 
